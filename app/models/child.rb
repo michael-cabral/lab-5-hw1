@@ -10,4 +10,8 @@ class Child < ApplicationRecord
     def name
     	return self.first_name + " " + self.last_name#{first_name} #{last_name}"
     end
+
+    def points_earned
+    	self.chores.done.inject(0){|sum,chore| sum += chore.task.points}
+  	end 
 end
